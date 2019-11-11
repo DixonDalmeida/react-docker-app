@@ -15,6 +15,7 @@
 - [Local Environment Monitoring](#local-environment---monitoring)
     - [CAdvisor](#cadvisor)
     - [Portainer](#portainer)
+- [Dockerfile](#dockerfile)
 
 ## Folder Structure
 
