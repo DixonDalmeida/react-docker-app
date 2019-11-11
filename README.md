@@ -131,3 +131,49 @@ Check out http://localhost:8080 for the CAdvisor Dashboard
 Portainer is a lightweight management UI which allows you to easily manage your different Docker environments (Docker hosts or Swarm clusters). Portainer is meant to be as simple to deploy as it is to use. It consists of a single container that can run on any Docker engine (can be deployed as Linux container or a Windows native container, supports other platforms too). Portainer allows you to manage all your Docker resources (containers, images, volumes, networks and more) !
 
 Check out http://localhost:9000 for the Portainer Dashboard
+
+## Dockerfile
+
+Multi Stage Dockerfile is used to build the react application.
+Dockerfile uses the node image to build the react application and publishes the build files to the nginx image. 
+Using nginx alpine image the user will be able to naviagate the react application
+
+```bash
+FROM node:13.1.0-buster-slim as build
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json /app/package.json
+RUN yarn install --silent
+COPY . /app
+RUN npm run build
+
+
+FROM nginx:1.16.1-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+nginx.conf
+
+```bash
+server {
+
+  listen 80;
+
+  location / {
+    root   /usr/share/nginx/html;
+    index  index.html index.htm;
+    try_files $uri $uri/ /index.html;
+  }
+
+  error_page   500 502 503 504  /50x.html;
+
+  location = /50x.html {
+    root   /usr/share/nginx/html;
+  }
+
+}
+```
