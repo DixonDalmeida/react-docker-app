@@ -12,28 +12,47 @@
 ## Folder Structure
 
 .gitignore
+
 docker-compose.yml
+
 Dockerfile
+
 Dockerfile.dev
+
 package.json
+
 README.md
+
 yarn.lock
+
 ├───nginx
+
        nginx.conf
 
 ├───public
+
        favicon.ico
+
        index.html
+
        manifest.json
 
 └───src
+
         App.css
+
         App.js
+
         App.test.js
+
         index.css
+
         index.js
+
         logo.svg
+
         registerServiceWorker.js
+
 
 ## Yarn Commands
 
