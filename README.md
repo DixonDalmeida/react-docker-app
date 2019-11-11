@@ -11,24 +11,21 @@
 
 ## Folder Structure
 
-│   .gitignore
-
-│   docker-compose.yml
-
-│   Dockerfile
-│   Dockerfile.dev
-│   package.json
-│   README.md
-│   yarn.lock
-│
+.gitignore
+docker-compose.yml
+Dockerfile
+Dockerfile.dev
+package.json
+README.md
+yarn.lock
 ├───nginx
-│       nginx.conf
-│
+       nginx.conf
+
 ├───public
-│       favicon.ico
-│       index.html
-│       manifest.json
-│
+       favicon.ico
+       index.html
+       manifest.json
+
 └───src
         App.css
         App.js
