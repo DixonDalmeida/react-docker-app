@@ -12,7 +12,9 @@
 ## Folder Structure
 
 │   .gitignore
+
 │   docker-compose.yml
+
 │   Dockerfile
 │   Dockerfile.dev
 │   package.json
