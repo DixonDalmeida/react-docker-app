@@ -8,13 +8,13 @@
     - [yarn test](#yarn-test)
     - [yarn run build](#yarn-run-build)
     - [yarn test coverage](#yarn-test-coverage)
-- [Local Environment Docker Compose](local-environment-docker-composer)
+- [Local Environment Docker Compose](local-environment-docker-compose)
     - [docker-compose build](#docker-compose-up)
     - [docker-compose ps](#docker-compose-ps)
     - [docker-compose stop](#docker-compose-stop)
-- [Local Environmanet Monitoring](#local-environment-monitoring)
-    - [CAdvisor](#monitoring-cadvisor)
-    - [Portainer](#monitoring-portainer)
+- [Local Environment Monitoring](#local-environment-monitoring)
+    - [CAdvisor](#cadvisor)
+    - [Portainer](#portainer)
 
 ## Folder Structure
 
@@ -116,7 +116,7 @@ Stop the docker-compose containers
 
 `docker-compose stop`
 
-## Local Environmanet - Monitoring
+## Local Environment - Monitoring
 
 ### CAdvisor
 
