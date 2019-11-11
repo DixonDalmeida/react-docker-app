@@ -8,11 +8,11 @@
     - [yarn test](#yarn-test)
     - [yarn run build](#yarn-run-build)
     - [yarn test coverage](#yarn-test-coverage)
-- [Local Environment Docker Compose](local-environment-docker-compose)
+- [Local Environment Docker Compose](#local-environment---docker-compose)
     - [docker-compose build](#docker-compose-up)
     - [docker-compose ps](#docker-compose-ps)
     - [docker-compose stop](#docker-compose-stop)
-- [Local Environment Monitoring](#local-environment-monitoring)
+- [Local Environment Monitoring](#local-environment---monitoring)
     - [CAdvisor](#cadvisor)
     - [Portainer](#portainer)
 
