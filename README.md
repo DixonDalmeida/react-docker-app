@@ -19,25 +19,25 @@
 
 ## Folder Structure
 
-.gitignore
+─.gitignore
 
-docker-compose.yml
+─docker-compose.yml
 
-Dockerfile
+─Dockerfile
 
-Dockerfile.dev
+─Dockerfile.dev
 
-package.json
+─package.json
 
-README.md
+─README.md
 
-yarn.lock
+─yarn.lock
 
-├───nginx
+─nginx
 
        nginx.conf
 
-├───public
+─public
 
        favicon.ico
 
@@ -45,7 +45,7 @@ yarn.lock
 
        manifest.json
 
-└───src
+─src
 
         App.css
 
