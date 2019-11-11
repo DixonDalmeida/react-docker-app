@@ -4,10 +4,17 @@
 
 - [Folder Structure](#folder-structure)
 - [Yarn Commands](#yarn-commands)
-  - [yarn start](#yarn-start)
-  - [yarn test](#yarn-test)
-  - [yarn run build](#yarn-run-build)
-  - [yarn test coverage](#yarn-test-coverage)
+    - [yarn start](#yarn-start)
+    - [yarn test](#yarn-test)
+    - [yarn run build](#yarn-run-build)
+    - [yarn test coverage](#yarn-test-coverage)
+- [Local Environment - Docker Compose](local-environment-docker-composer)
+    - [docker build](#docker-up)
+    - [docker ps](#docker-ps)
+    - [docker stop](#docker-stop)
+- [Local Environmanet - Monitoring](#local-environment-monitoring)
+    - [CAdvisor](#monitoring-cadvisor)
+    - [Portainer](#monitoring-portainer)
 
 ## Folder Structure
 
@@ -84,3 +91,43 @@ Your app is ready to be deployed!
 Jest has an integrated coverage reporter that works well with ES6 and requires no configuration.
 Run yarn test -- --coverage
 
+
+## Local Environment - Docker Compose
+
+### `docker-compose build`
+
+Build Docker image in docker-compose file using build command
+
+`docker-compose build`
+
+### `docker-compose up`
+
+Up the docker containers 
+
+`docker-compose up`
+
+Up the docker containers in daemon mode
+
+`docker-compose up -d`
+
+### `docker-compose stop`
+
+Stop the docker-compose containers
+
+`docker-compose stop`
+
+## Local Environmanet - Monitoring
+
+### CAdvisor
+
+Analyzes resource usage and performance characteristics of running containers. 
+cAdvisor (Container Advisor) provides container users an understanding of the resource usage and performance characteristics of their running containers. It is a running daemon that collects, aggregates, processes, and exports information about running containers. Specifically, for each container it keeps resource isolation parameters, historical resource usage, and histograms of complete historical resource usage. This data is exported by container and machine-wide.
+https://github.com/google/cadvisor
+
+Check out http://localhost:8080 for the CAdvisor Dashboard
+
+### Portainer
+
+Portainer is a lightweight management UI which allows you to easily manage your different Docker environments (Docker hosts or Swarm clusters). Portainer is meant to be as simple to deploy as it is to use. It consists of a single container that can run on any Docker engine (can be deployed as Linux container or a Windows native container, supports other platforms too). Portainer allows you to manage all your Docker resources (containers, images, volumes, networks and more) !
+
+Check out http://localhost:9000 for the Portainer Dashboard
