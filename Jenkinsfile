@@ -6,17 +6,17 @@ pipeline {
     //options {
     //skipDefaultCheckout true
     //}
-    environment {
-        registry = "docker_hub_account/repository_name"
-        registryCredential = '9d5388a6-334d-4121-9138-d191463912ec'
-    }
+    //environment {
+     //   registry = "docker_hub_account/repository_name"
+      //  registryCredential = '9d5388a6-334d-4121-9138-d191463912ec'
+    //}
     parameters {
         string(name: 'projectName', defaultValue: 'sph-golden-images', description: 'Name of the project')
         //string(name: 'sourceCodeRepo', defaultValue: 'https://github.com/starlord-dixon/sph-golden-images.git', description: 'Source Code Repository')
         //string(name: 'buildBranch', defaultValue: 'master', description: 'Which branch should be built , this could be the parent or the feature branch')
         string(name: 'gitRepoCredentials', defaultValue: '5398079d-724f-4c2e-a291-4be6dc7f922d', description: 'Build Script Branch')
         string(name: 'registryUrl', defaultValue: 'https://registry-1.docker.io/v2', description: 'Container Registry URL')
-        string(name: 'dockerRepository', defaultValue: 'sph-digital/debian-golden-image', description: 'The docker repository')
+        string(name: 'dockerRepository', defaultValue: 'asia.gcr.io/k8-demo-242907/react-app', description: 'The docker repository')
         string(name: 'registryCredentialsId', defaultValue: 'docker-registry-creds', description: 'The credentials id that points to the Container Registry credentials')
     }
     triggers {
@@ -34,28 +34,12 @@ pipeline {
         )
     }
     stages{
-        /*stage("Prepare SCM"){
-            steps{
-                script{
-                    //cleanWs()
-                    git branch: params.buildBranch, url: params.sourceCodeRepo, credentialsId: params.gitRepoCredentials
-                    echo "Removing git references"
-                    sh "rm -rf .git"
-                    echo 'Prepared'
-                }
-            }
-            post {
-                failure {
-                    echo 'I failed :('
-                }
-            }
-        }*/
         stage("Build Docker Image"){
             steps{
                 script{
                         echo 'Build docker image'
                         dockerfile = "Dockerfile"
-                        builtImg = docker.build("${params.dockerRepository}", "-f ${dockerfile} .")
+                        builtImg = docker.build("${params.dockerRepository}:1.0.${BUILD_NUMBER}", "-f ${dockerfile} .")
                 }
             }
             post {
@@ -68,9 +52,9 @@ pipeline {
             steps{
                 script{
                     echo 'Pushing to Repo'
-                    // docker.withRegistry("${params.registryUrl}", "${params.registryCredentialsId}" ){
-                    //     builtImg.push("v${BUILD_NUMBER}");
-                    // }
+                     docker.withRegistry("${params.registryUrl}", "${params.registryCredentialsId}" ){
+                         builtImg.push("1.0.${BUILD_NUMBER}");
+                     }
                 }
             }
             post {
