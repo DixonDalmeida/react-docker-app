@@ -11,9 +11,7 @@ keywords:
 - www
 - reverse proxy
 maintainers:
-- email: containers@bitnami.com
-  name: Bitnami
+- email: dixon.almeida8@gmail.com
+  name: Dixon
 name: nginx
-sources:
-- https://github.com/bitnami/bitnami-docker-nginx
 version: 4.3.12
