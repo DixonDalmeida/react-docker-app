@@ -64,21 +64,6 @@ pipeline {
                 }
             }
         }
-        
-        stage("Check CIS compliance"){
-            steps{
-                script{
-                    ansiColor('xterm') {
-                        sh 'docker run --net host --pid host --userns host --cap-add audit_control -e DOCKER_CONTENT_TRUST=$DOCKER_CONTENT_TRUST -v /etc:/etc:ro -v /usr/bin/docker-containerd:/usr/bin/docker-containerd:ro -v /usr/bin/docker-runc:/usr/bin/docker-runc:ro -v /usr/lib/systemd:/usr/lib/systemd:ro -v /var/lib:/var/lib:ro -v /var/run/docker.sock:/var/run/docker.sock:ro --label docker_bench_security docker/docker-bench-security -c check_4,check_4_1,check_4_2,check_4_3,check_4_4,check_4_5,check_4_6,check_4_7,check_4_8,check_4_9,check_4_10,check_4_11,check_4_end -i *sph-digital/debian-golden-image*'
-                    }
-                }
-            }
-            post {
-                failure {
-                    echo 'I failed :('
-                }
-            }
-        }
         stage("Push to Registry"){
             steps{
                 script{
