@@ -3,9 +3,9 @@ builtImg = ''
 
 pipeline {
     agent any
-    options {
-    skipDefaultCheckout true
-    }
+    //options {
+    //skipDefaultCheckout true
+    //}
     environment {
         registry = "docker_hub_account/repository_name"
         registryCredential = '9d5388a6-334d-4121-9138-d191463912ec'
