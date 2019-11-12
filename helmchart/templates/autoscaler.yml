@@ -1,12 +1,19 @@
+{{- if .Values.autoscaling.enabled }}
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: react-nginx
+  name: {{ template "nginx.fullname" . }}
+  labels:
+    app: {{ template "nginx.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
 spec:
-  maxReplicas: 5
-  minReplicas: 1
+  maxReplicas: {{ .Values.autoscaling.maxReplicas }}
+  minReplicas:  {{ .Values.autoscaling.minReplicas }}
   scaleTargetRef:
     apiVersion: extensions/v1beta1
     kind: Deployment
-    name: react-nginx
-  targetCPUUtilizationPercentage: 50
+    name: {{ template "nginx.fullname" . }}
+  targetCPUUtilizationPercentage: {{ .Values.autoscaling.targetCPUUtilizationPercentage }}
+{{- end }}
