@@ -52,9 +52,9 @@ pipeline {
             steps{
                 script{
                     echo 'Pushing to Repo'
-                     docker.withRegistry("${params.registryUrl}", "${params.registryCredentialsId}" ){
+                     //docker.withRegistry("${params.registryUrl}", "${params.registryCredentialsId}" ){
                          builtImg.push("1.0.${BUILD_NUMBER}");
-                     }
+                     //}
                 }
             }
             post {
