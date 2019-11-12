@@ -172,7 +172,13 @@ tolerations: {}
 ## Resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
 ##
-# resources: {}
+resources: 
+      requests:
+        memory: "64Mi"
+        cpu: "50m"
+      limits:
+        memory: "128Mi"
+        cpu: "100m"
 
 ## Prometheus Exporter / Metrics
 ##
