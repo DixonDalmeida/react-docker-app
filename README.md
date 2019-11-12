@@ -1,4 +1,4 @@
-# Sample-React-Docker-App
+# React-Docker-App
 
 ## Table of Contents
 

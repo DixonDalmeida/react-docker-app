@@ -11,8 +11,8 @@ pipeline {
       //  registryCredential = '9d5388a6-334d-4121-9138-d191463912ec'
     //}
     parameters {
-        string(name: 'projectName', defaultValue: 'sph-golden-images', description: 'Name of the project')
-        //string(name: 'sourceCodeRepo', defaultValue: 'https://github.com/starlord-dixon/sph-golden-images.git', description: 'Source Code Repository')
+        string(name: 'projectName', defaultValue: 'react-app', description: 'Name of the project')
+        //string(name: 'sourceCodeRepo', defaultValue: '', description: 'Source Code Repository')
         //string(name: 'buildBranch', defaultValue: 'master', description: 'Which branch should be built , this could be the parent or the feature branch')
         string(name: 'gitRepoCredentials', defaultValue: '5398079d-724f-4c2e-a291-4be6dc7f922d', description: 'Build Script Branch')
         string(name: 'registryUrl', defaultValue: 'https://registry-1.docker.io/v2', description: 'Container Registry URL')
